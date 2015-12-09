@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="jquery-2.1.3.min.js"></script>
+
+</head>
+ <body>
+<div></div>
+<script src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
+<script>
+$(document).ready(function(){
+
+
+	$.get('https://api.github.com/users/superman7117')
+		.done(function(data, status){
+			console.log("data:", data);
+			console.log("status", status);
+			var $card = makeCard(data);
+			$('.container').append($card);
+		})
+	
+	
+	function makeCard(data){
+		var $card = $('<div>').css({'width': "150px", 'display': 'block'});
+		var $pic = $('<img>').attr('src', data.avatar_url).css({'max-width': "100%"});
+		var $user = $('<div>').text(data.login);
+		var $name = $('<div>').text(data.name);
+		$card.append($pic).append($user).append($name);
+		$card.wrap($('div').addClass("container").css({'width': "150px", 'display': 'block'}));
+		return $card
+	}
+});
+</script>
+</body>
+</html>
