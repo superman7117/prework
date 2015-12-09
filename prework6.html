@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="jquery-2.1.3.min.js"></script>
+<style>
+.look {
+background-color: oldlace;
+height: 100vh;
+width: 100vw;
+}
+.look2 {
+background-color: black;
+height: 100vh;
+width: 100vw;
+}
+
+.but {
+color: oldlace;
+font-size: 20pt;
+background-color: black;
+height: 30vh;
+width: 49vw;
+display: inline-block;
+}
+.but2 {
+color: black;
+font-size: 20pt;
+background-color: oldlace;
+height: 30vh;
+width: 49vw;
+display: inline-block;
+}
+footer {
+position: absolute;
+bottom: 0;
+}
+</style>
+</head>
+<body>
+
+<div id="page" class="look">
+<footer>
+<button id="darken" class="but"> Click for Darker 
+</button>
+<button id="lighten" class="but2"> Click for Lighter
+</button>
+</footer>
+</div>
+<script>
+$(document).ready(function() {
+	$('#darken').on('click', function() {
+		if ($("#page").attr("background-color", "oldlace")) {
+			$(this).parent().parent().removeClass('look')
+			$(this).parent().parent().addClass('look2')
+			$(this).removeClass('but')
+			$(this).addClass('but2')
+			$('#lighten').removeClass('but2')
+			$('#lighten').addClass('but')
+		};
+		return false
+	});
+	$('#lighten').on('click', function() {
+		if ($("#page").attr("background-color", "oldlace")) {
+			$(this).parent().parent().removeClass('look2')
+			$(this).parent().parent().addClass('look')
+			$(this).removeClass('but')
+			$(this).addClass('but2')
+			$("#darken").removeClass('but2')
+			$("#darken").addClass('but')
+		};
+		return false
+	});
+		
+
+
+	});
+</script>
+</body>
+</html>
