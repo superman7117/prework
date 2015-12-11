@@ -1,1 +1,1 @@
-$grep -c *[:digit:]* X.txt
+$grep -c *[[:digit:]]* X.txt
